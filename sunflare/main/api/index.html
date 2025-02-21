@@ -54,7 +54,7 @@
         </script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Configuration module" href="config/" />
+    <link rel="next" title="sunflare.config" href="config/" />
     <link rel="prev" title="Virtual bus" href="../overview/virtual/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -351,12 +351,12 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="config/">Configuration module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine/">Engine API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model/">Model API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller/">Controller API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="virtual/">Virtual module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="log/">Logging facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config/"><code class="docutils literal notranslate"><span class="pre">sunflare.config</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine/"><code class="docutils literal notranslate"><span class="pre">sunflare.engine</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/"><code class="docutils literal notranslate"><span class="pre">sunflare.model</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller/"><code class="docutils literal notranslate"><span class="pre">sunflare.controller</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual/"><code class="docutils literal notranslate"><span class="pre">sunflare.virtual</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="log/"><code class="docutils literal notranslate"><span class="pre">sunflare.log</span></code></a></li>
 </ul>
 </div>
 </nav></div>
@@ -418,12 +418,50 @@
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="config/">Configuration module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine/">Engine API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model/">Model API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller/">Controller API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="virtual/">Virtual module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="log/">Logging facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config/"><code class="docutils literal notranslate"><span class="pre">sunflare.config</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config/#sunflare.config.AcquisitionEngineTypes"><code class="docutils literal notranslate"><span class="pre">AcquisitionEngineTypes</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/#sunflare.config.FrontendTypes"><code class="docutils literal notranslate"><span class="pre">FrontendTypes</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/#sunflare.config.ControllerInfo"><code class="docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/#sunflare.config.ModelInfo"><code class="docutils literal notranslate"><span class="pre">ModelInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/#sunflare.config.RedSunSessionInfo"><code class="docutils literal notranslate"><span class="pre">RedSunSessionInfo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="engine/"><code class="docutils literal notranslate"><span class="pre">sunflare.engine</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engine/#sunflare.engine.Status"><code class="docutils literal notranslate"><span class="pre">Status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine/#sunflare.engine.RunEngine"><code class="docutils literal notranslate"><span class="pre">RunEngine</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine/#sunflare.engine.RunEngineResult"><code class="docutils literal notranslate"><span class="pre">RunEngineResult</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model/"><code class="docutils literal notranslate"><span class="pre">sunflare.model</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model/#sunflare.model.ModelProtocol"><code class="docutils literal notranslate"><span class="pre">ModelProtocol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/#sunflare.model.check_supports"><code class="docutils literal notranslate"><span class="pre">check_supports()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controller/"><code class="docutils literal notranslate"><span class="pre">sunflare.controller</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.ControllerProtocol"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.HasShutdown"><code class="docutils literal notranslate"><span class="pre">HasShutdown</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.HasRegistration"><code class="docutils literal notranslate"><span class="pre">HasRegistration</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.HasConnection"><code class="docutils literal notranslate"><span class="pre">HasConnection</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.Controller"><code class="docutils literal notranslate"><span class="pre">Controller</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.Sender"><code class="docutils literal notranslate"><span class="pre">Sender</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.Receiver"><code class="docutils literal notranslate"><span class="pre">Receiver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.SenderReceiver"><code class="docutils literal notranslate"><span class="pre">SenderReceiver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="controller/#sunflare.controller.Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="virtual/"><code class="docutils literal notranslate"><span class="pre">sunflare.virtual</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.VirtualBus"><code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.slot"><code class="docutils literal notranslate"><span class="pre">slot()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.Publisher"><code class="docutils literal notranslate"><span class="pre">Publisher</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.Subscriber"><code class="docutils literal notranslate"><span class="pre">Subscriber</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.encode"><code class="docutils literal notranslate"><span class="pre">encode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual/#sunflare.virtual.decode"><code class="docutils literal notranslate"><span class="pre">decode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="log/"><code class="docutils literal notranslate"><span class="pre">sunflare.log</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="log/#sunflare.log.Loggable"><code class="docutils literal notranslate"><span class="pre">Loggable</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -452,7 +490,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Configuration module</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">sunflare.config</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

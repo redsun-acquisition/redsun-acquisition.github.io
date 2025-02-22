@@ -1,0 +1,1127 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sunflare.controller &#8212; Sunflare  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=47693ab7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/controller';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="sunflare.virtual" href="../virtual/" />
+    <link rel="prev" title="sunflare.model" href="../model/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Sunflare  documentation</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../statement/">
+    Statement of need
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../overview/">
+    Overview
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../crash_course/">
+    O.O.P. crash course
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../changelog/">
+    Changelog
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/sunflare" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../statement/">
+    Statement of need
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../overview/">
+    Overview
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../crash_course/">
+    O.O.P. crash course
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog/">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/sunflare" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config/"><code class="docutils literal notranslate"><span class="pre">sunflare.config</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engine/"><code class="docutils literal notranslate"><span class="pre">sunflare.engine</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/"><code class="docutils literal notranslate"><span class="pre">sunflare.model</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">sunflare.controller</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtual/"><code class="docutils literal notranslate"><span class="pre">sunflare.virtual</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log/"><code class="docutils literal notranslate"><span class="pre">sunflare.log</span></code></a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><code class="docutils literal notranslate"><span class="pre">sunflare.controller</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sunflare-controller">
+<h1><code class="docutils literal notranslate"><span class="pre">sunflare.controller</span></code><a class="headerlink" href="#sunflare-controller" title="Link to this heading">#</a></h1>
+<p>Controllers come in two forms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typing.Protocol</span></code> classes:</p>
+<ul>
+<li><p>no inheritance required, allows full customization of the controller;</p></li>
+<li><p>users will have to implement each interface on their own in a controller class;</p></li>
+<li><p>available protocols:</p>
+<ul>
+<li><p><a class="reference internal" href="#sunflare.controller.ControllerProtocol" title="sunflare.controller.ControllerProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a> (for class initialization)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.HasShutdown" title="sunflare.controller.HasShutdown"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasShutdown</span></code></a> (for clearing held resources)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.HasRegistration" title="sunflare.controller.HasRegistration"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code></a> (for registering signals)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.HasConnection" title="sunflare.controller.HasConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code></a> (for connecting signals to local methods)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>boilerplate mixin classes:</p>
+<ul>
+<li><p>minimal, reusable components to provide a specific functionality</p></li>
+<li><p>inheritance is required</p></li>
+<li><p>available mixins:</p>
+<ul>
+<li><p><a class="reference internal" href="#sunflare.controller.Controller" title="sunflare.controller.Controller"><code class="xref py py-class docutils literal notranslate"><span class="pre">Controller</span></code></a> (minimal base controller)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.Sender" title="sunflare.controller.Sender"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sender</span></code></a> (implements <a class="reference internal" href="#sunflare.controller.HasRegistration" title="sunflare.controller.HasRegistration"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code></a> protocol)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.Receiver" title="sunflare.controller.Receiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Receiver</span></code></a> (implements <a class="reference internal" href="#sunflare.controller.HasConnection" title="sunflare.controller.HasConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code></a> protocol)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.SenderReceiver" title="sunflare.controller.SenderReceiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">SenderReceiver</span></code></a> (union of previous two mixins)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<dl class="py class" id="module-sunflare.controller">
+<dt class="sig sig-object py" id="sunflare.controller.ControllerProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">ControllerProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctrl_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_bus</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.ControllerProtocol" title="Link to this definition">#</a></dt>
+<dd><p>Controller protocol class.</p>
+<p>Provides the interface for a class
+that Redsun can recognize as a controller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctrl_info</strong> (<a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a>) – Controller information.</p></li>
+<li><p><strong>models</strong> (Mapping[str, <a class="reference internal" href="../model/#sunflare.model.ModelProtocol" title="sunflare.model.ModelProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelProtocol</span></code></a>]) – Models currently loaded in the active Redsun session.</p></li>
+<li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Virtual bus.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.ControllerProtocol.ctrl_info">
+<span class="sig-name descname"><span class="pre">ctrl_info</span></span><a class="headerlink" href="#sunflare.controller.ControllerProtocol.ctrl_info" title="Link to this definition">#</a></dt>
+<dd><p>Controller information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.ControllerProtocol.virtual_bus">
+<span class="sig-name descname"><span class="pre">virtual_bus</span></span><a class="headerlink" href="#sunflare.controller.ControllerProtocol.virtual_bus" title="Link to this definition">#</a></dt>
+<dd><p>Reference to the virtual bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.HasShutdown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasShutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasShutdown" title="Link to this definition">#</a></dt>
+<dd><p>Shutdown protocol class.</p>
+<p>Provides the <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.HasShutdown.shutdown">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasShutdown.shutdown" title="Link to this definition">#</a></dt>
+<dd><p>Shutdown the controller. Performs cleanup operations.</p>
+<p>If the controller holds any kind of resources,
+this method should invoke any equivalent shutdown method for each resource.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.HasRegistration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasRegistration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasRegistration" title="Link to this definition">#</a></dt>
+<dd><p>Protocol marking your class as capable of emitting signals.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.HasRegistration.registration_phase">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">registration_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasRegistration.registration_phase" title="Link to this definition">#</a></dt>
+<dd><p>Register the controller signals listed in this method to expose them to the virtual bus.</p>
+<p>At application start-up, controllers can’t know what signals are available from other controllers. This method is called after all controllers are initialized to allow them to register their signals. Controllers may be able to register further signals even after this phase (but not before the <cite>connection_phase</cite> ended). </p>
+<p>Only signals defined in your controller can be registered.</p>
+<p>An implementation example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">registration_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># you can register all signals...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="o">.</span><span class="n">register_signals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="c1"># ... or only a selection of them</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="o">.</span><span class="n">register_signals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">only</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;signal&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.HasConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasConnection" title="Link to this definition">#</a></dt>
+<dd><p>Protocol marking your class as requesting connection to other signals.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.HasConnection.connection_phase">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connection_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasConnection.connection_phase" title="Link to this definition">#</a></dt>
+<dd><p>Connect to other controllers or widgets.</p>
+<p>At application start-up, controllers can’t know what signals are available from other parts of Redsun.
+This method is invoked after the controller’s construction and after <cite>registration_phase</cite> as well, allowing to
+connect to all available registered signals in both virtual buses.
+Controllers may be able to connect to other signals even after this phase (provided those signals
+were registered before).</p>
+<p>An implementation example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">connection_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># you can connect signals from another controller to your local slots...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherController&quot;</span><span class="p">][</span><span class="s2">&quot;signal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_my_slot</span><span class="p">)</span>
+
+    <span class="c1"># ... or to other signals ...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherController&quot;</span><span class="p">][</span><span class="s2">&quot;signal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigMySignal</span><span class="p">)</span>
+
+    <span class="c1"># ... or connect to widgets</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherWidget&quot;</span><span class="p">][</span><span class="s2">&quot;sigWidget&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_my_slot</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.Controller">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">Controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctrl_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_bus</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Controller" title="Link to this definition">#</a></dt>
+<dd><p>A boilerplate base class for quick development.</p>
+<p>Users may subclass from this controller and provide their custom
+<a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> implementation.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controller</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ControllerInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">attrs</span><span class="w"> </span><span class="kn">import</span> <span class="n">define</span>
+
+
+<span class="nd">@define</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyControllerInfo</span><span class="p">(</span><span class="n">ControllerInfo</span><span class="p">):</span>
+    <span class="n">str_param</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bool_param</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="c1"># any other parameters...</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyController</span><span class="p">(</span><span class="n">Controller</span><span class="p">[</span><span class="n">MyControllerInfo</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ctrl_info</span><span class="p">:</span> <span class="n">MyControllerInfo</span><span class="p">,</span>
+        <span class="n">models</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ModelProtocol</span><span class="p">],</span>
+        <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ctrl_info</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">)</span>
+        <span class="c1"># any other initialization code...</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a>.</p></li>
+<li><p><strong>models</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">ModelProtocol]</span></code>) – Reference to the models used in the controller.</p></li>
+<li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Reference to the virtual bus.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.Sender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">Sender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctrl_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_bus</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Sender" title="Link to this definition">#</a></dt>
+<dd><p>A controller capable of emitting signals to the virtual bus.</p>
+<p>Provides an additional <cite>signals</cite> parameter to the constructor
+to optionally register a group of the controller’s defined
+signals.</p>
+<p>Users may subclass from this controller and provide their custom
+<a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> implementation.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">SignalerController</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ControllerInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">attrs</span><span class="w"> </span><span class="kn">import</span> <span class="n">define</span>
+
+
+<span class="nd">@define</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyControllerInfo</span><span class="p">(</span><span class="n">ControllerInfo</span><span class="p">):</span>
+    <span class="n">str_param</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bool_param</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="c1"># any other parameters...</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyController</span><span class="p">(</span><span class="n">SignalerController</span><span class="p">[</span><span class="n">MyControllerInfo</span><span class="p">]):</span>
+    <span class="n">sigRegisteredSignal</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">sigUnregisteredSignal</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ctrl_info</span><span class="p">:</span> <span class="n">MyControllerInfo</span><span class="p">,</span>
+        <span class="n">models</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ModelProtocol</span><span class="p">],</span>
+        <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">signals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sigRegisteredSignal&quot;</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ctrl_info</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">,</span> <span class="n">signals</span><span class="p">)</span>
+        <span class="c1"># any other initialization code...</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#sunflare.controller.Controller" title="sunflare.controller.Controller"><code class="xref py py-class docutils literal notranslate"><span class="pre">Controller</span></code></a> for parent information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users should carefully document the data transmitted by the signals
+to ensure other endpoints can easily connect to them.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of a <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> subclass.</p></li>
+<li><p><strong>models</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">ModelProtocol]</span></code>) – Reference to the models used in the controller.</p></li>
+<li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Reference to the virtual bus.</p></li>
+<li><p><strong>signals</strong> (<code class="docutils literal notranslate"><span class="pre">Iterable[str]</span></code>, keyword-only, optional) – Iterable of signals to register.
+Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> (no signals registered).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.Sender.signals">
+<span class="sig-name descname"><span class="pre">signals</span></span><a class="headerlink" href="#sunflare.controller.Sender.signals" title="Link to this definition">#</a></dt>
+<dd><p>Iterable of registered signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Iterable[str]</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.Sender.registration_phase">
+<span class="sig-name descname"><span class="pre">registration_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Sender.registration_phase" title="Link to this definition">#</a></dt>
+<dd><p>Register the signals defined in <code class="docutils literal notranslate"><span class="pre">self.signals</span></code>.</p>
+<p>This method is called from Redsun during
+application initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.Receiver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">Receiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctrl_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_bus</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Receiver" title="Link to this definition">#</a></dt>
+<dd><p>A controller capable of connecting signals exposed in the virtual bus to local slots.</p>
+<p>Provides an additional <cite>connection_map</cite> parameter to the constructor
+to optionally connect a group of the controller’s defined signals to local slots.</p>
+<p>Users may subclass from this controller and provide their custom
+<a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> implementation.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReceiverController</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ControllerInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">attrs</span><span class="w"> </span><span class="kn">import</span> <span class="n">define</span>
+
+<span class="nd">@define</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyControllerInfo</span><span class="p">(</span><span class="n">ControllerInfo</span><span class="p">):</span>
+    <span class="n">str_param</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bool_param</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="c1"># any other parameters...</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyController</span><span class="p">(</span><span class="n">ReceiverController</span><span class="p">[</span><span class="n">MyControllerInfo</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ctrl_info</span><span class="p">:</span> <span class="n">MyControllerInfo</span><span class="p">,</span>
+        <span class="n">models</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ModelProtocol</span><span class="p">],</span>
+        <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">connection_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;WidgetEmitter&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigWidgetSignal1&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">widget_slot</span><span class="p">),</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigWidgetSignal2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_widget_slot</span><span class="p">)</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;ControllerEmitter&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigControllerSignal&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">controller_slot</span><span class="p">),</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ctrl_info</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">,</span> <span class="n">connection_map</span><span class="p">)</span>
+        <span class="c1"># any other initialization code...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">widget_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">other_widget_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">controller_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+<span class="o">..</span> <span class="n">note</span><span class="p">::</span>
+
+    <span class="n">The</span> <span class="n">controller</span> <span class="n">slots</span> <span class="n">should</span> <span class="n">respect</span> <span class="n">the</span> <span class="n">signals</span><span class="s1">&#39; signatures</span>
+    <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">correctly</span> <span class="n">receive</span> <span class="n">the</span> <span class="n">emitted</span> <span class="n">signals</span><span class="o">.</span>
+    <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">review</span> <span class="nb">any</span> <span class="n">provided</span> <span class="n">documentation</span>
+    <span class="n">about</span> <span class="n">the</span> <span class="n">nature</span> <span class="n">of</span> <span class="n">the</span> <span class="n">signals</span> <span class="n">being</span> <span class="n">connected</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#sunflare.controller.Controller" title="sunflare.controller.Controller"><code class="xref py py-class docutils literal notranslate"><span class="pre">Controller</span></code></a> for parent information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of a <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> subclass.</p></li>
+<li><p><strong>models</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">ModelProtocol]</span></code>) – Reference to the models used in the controller.</p></li>
+<li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Reference to the virtual bus.</p></li>
+<li><p><strong>connection_map</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">list[Connection]]</span></code>, optional) – Mapping of emitters to a list of connections.
+Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> (no connections).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.Receiver.connection_map">
+<span class="sig-name descname"><span class="pre">connection_map</span></span><a class="headerlink" href="#sunflare.controller.Receiver.connection_map" title="Link to this definition">#</a></dt>
+<dd><p>Mapping of emitters to a list of connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">list[Connection]]</span></code>, keyword-only, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.Receiver.connection_phase">
+<span class="sig-name descname"><span class="pre">connection_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Receiver.connection_phase" title="Link to this definition">#</a></dt>
+<dd><p>Connect the signals defined in <code class="docutils literal notranslate"><span class="pre">self.connection_map</span></code>.</p>
+<p>This method is called from Redsun during
+application initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.SenderReceiver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">SenderReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctrl_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_bus</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.SenderReceiver" title="Link to this definition">#</a></dt>
+<dd><p>Combines the functionality of <a class="reference internal" href="#sunflare.controller.Sender" title="sunflare.controller.Sender"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sender</span></code></a> and <a class="reference internal" href="#sunflare.controller.Receiver" title="sunflare.controller.Receiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Receiver</span></code></a>.</p>
+<p>Users may subclass from this controller and provide their custom
+<a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> implementation.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">SenderReceiverController</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ControllerInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">attrs</span><span class="w"> </span><span class="kn">import</span> <span class="n">define</span>
+
+<span class="nd">@define</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyControllerInfo</span><span class="p">(</span><span class="n">ControllerInfo</span><span class="p">):</span>
+    <span class="n">str_param</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bool_param</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="c1"># any other parameters...</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyController</span><span class="p">(</span><span class="n">SenderReceiverController</span><span class="p">[</span><span class="n">MyControllerInfo</span><span class="p">]):</span>
+    <span class="n">sigRegisteredSignal</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">sigUnregisteredSignal</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ctrl_info</span><span class="p">:</span> <span class="n">MyControllerInfo</span><span class="p">,</span>
+        <span class="n">models</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ModelProtocol</span><span class="p">],</span>
+        <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">signals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sigRegisteredSignal&quot;</span><span class="p">]</span>
+        <span class="n">connection_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;WidgetEmitter&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigWidgetSignal1&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">widget_slot</span><span class="p">),</span>
+                <span class="c1"># you can recover the slot with &quot;getattr(self, &lt;slot_name&gt;)&quot; too</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigWidgetSignal2&quot;</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;other_widget_slot&quot;</span><span class="p">))</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;ControllerEmitter&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">Connection</span><span class="p">(</span><span class="s2">&quot;sigControllerSignal&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">controller_slot</span><span class="p">),</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ctrl_info</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">,</span> <span class="n">signals</span><span class="p">,</span> <span class="n">connection_map</span><span class="p">)</span>
+        <span class="c1"># any other initialization code...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">widget_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">other_widget_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">controller_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># your logic here...</span>
+
+<span class="o">..</span> <span class="n">note</span><span class="p">::</span>
+
+    <span class="n">The</span> <span class="n">controller</span> <span class="n">slots</span> <span class="n">should</span> <span class="n">respect</span> <span class="n">the</span> <span class="n">signals</span><span class="s1">&#39; signatures</span>
+    <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">correctly</span> <span class="n">receive</span> <span class="n">the</span> <span class="n">emitted</span> <span class="n">signals</span><span class="o">.</span>
+    <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">review</span> <span class="nb">any</span> <span class="n">provided</span> <span class="n">documentation</span>
+    <span class="n">about</span> <span class="n">the</span> <span class="n">nature</span> <span class="n">of</span> <span class="n">the</span> <span class="n">signals</span> <span class="n">being</span> <span class="n">connected</span><span class="o">.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of a <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> subclass.</p></li>
+<li><p><strong>models</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">ModelProtocol]</span></code>) – Reference to the models used in the controller.</p></li>
+<li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Reference to the virtual bus.</p></li>
+<li><p><strong>signals</strong> (<code class="docutils literal notranslate"><span class="pre">Iterable[str]</span></code>, optional) – Iterable of signals to register.
+Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> (no signals registered).</p></li>
+<li><p><strong>connection_map</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">list[Connection]]</span></code>, optional) – Mapping of emitters to a list of connections.
+Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> (no connections).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.SenderReceiver.signals">
+<span class="sig-name descname"><span class="pre">signals</span></span><a class="headerlink" href="#sunflare.controller.SenderReceiver.signals" title="Link to this definition">#</a></dt>
+<dd><p>Iterable of registered signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Iterable[str]</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.SenderReceiver.connection_map">
+<span class="sig-name descname"><span class="pre">connection_map</span></span><a class="headerlink" href="#sunflare.controller.SenderReceiver.connection_map" title="Link to this definition">#</a></dt>
+<dd><p>Mapping of emitters to a list of connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">list[Connection]]</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.SenderReceiver.registration_phase">
+<span class="sig-name descname"><span class="pre">registration_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.SenderReceiver.registration_phase" title="Link to this definition">#</a></dt>
+<dd><p>Register the signals defined in <code class="docutils literal notranslate"><span class="pre">self.signals</span></code>.</p>
+<p>This method is called from Redsun during
+application initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sunflare.controller.SenderReceiver.connection_phase">
+<span class="sig-name descname"><span class="pre">connection_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.SenderReceiver.connection_phase" title="Link to this definition">#</a></dt>
+<dd><p>Connect the signals defined in <code class="docutils literal notranslate"><span class="pre">self.connection_map</span></code>.</p>
+<p>This method is called from Redsun during
+application initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sunflare.controller.Connection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">Connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.Connection" title="Link to this definition">#</a></dt>
+<dd><p>Connection tuple.</p>
+<p>Provides a type-hinted helper
+for describing a connection between
+a virtual bus signal and a local slot.</p>
+<p>Usable with <a class="reference internal" href="#sunflare.controller.Receiver" title="sunflare.controller.Receiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Receiver</span></code></a>
+and <a class="reference internal" href="#sunflare.controller.SenderReceiver" title="sunflare.controller.SenderReceiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">SenderReceiver</span></code></a>
+to set the <cite>connection_map</cite> parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Signal name.</p></li>
+<li><p><strong>slot</strong> (<code class="docutils literal notranslate"><span class="pre">Callable</span></code>) – Slot to connect to.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.Connection.signal">
+<span class="sig-name descname"><span class="pre">signal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sunflare.controller.Connection.signal" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.controller.Connection.slot">
+<span class="sig-name descname"><span class="pre">slot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sunflare.controller.Connection.slot" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../model/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">sunflare.model</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../virtual/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">sunflare.virtual</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol.ctrl_info"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol.ctrl_info</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol.virtual_bus"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol.virtual_bus</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasShutdown"><code class="docutils literal notranslate"><span class="pre">HasShutdown</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasShutdown.shutdown"><code class="docutils literal notranslate"><span class="pre">HasShutdown.shutdown()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasRegistration"><code class="docutils literal notranslate"><span class="pre">HasRegistration</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasRegistration.registration_phase"><code class="docutils literal notranslate"><span class="pre">HasRegistration.registration_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasConnection"><code class="docutils literal notranslate"><span class="pre">HasConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasConnection.connection_phase"><code class="docutils literal notranslate"><span class="pre">HasConnection.connection_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Controller"><code class="docutils literal notranslate"><span class="pre">Controller</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Sender"><code class="docutils literal notranslate"><span class="pre">Sender</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Sender.signals"><code class="docutils literal notranslate"><span class="pre">Sender.signals</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Sender.registration_phase"><code class="docutils literal notranslate"><span class="pre">Sender.registration_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Receiver"><code class="docutils literal notranslate"><span class="pre">Receiver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Receiver.connection_map"><code class="docutils literal notranslate"><span class="pre">Receiver.connection_map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Receiver.connection_phase"><code class="docutils literal notranslate"><span class="pre">Receiver.connection_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.SenderReceiver"><code class="docutils literal notranslate"><span class="pre">SenderReceiver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.SenderReceiver.signals"><code class="docutils literal notranslate"><span class="pre">SenderReceiver.signals</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.SenderReceiver.connection_map"><code class="docutils literal notranslate"><span class="pre">SenderReceiver.connection_map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.SenderReceiver.registration_phase"><code class="docutils literal notranslate"><span class="pre">SenderReceiver.registration_phase()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.SenderReceiver.connection_phase"><code class="docutils literal notranslate"><span class="pre">SenderReceiver.connection_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Connection.signal"><code class="docutils literal notranslate"><span class="pre">Connection.signal</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Connection.slot"><code class="docutils literal notranslate"><span class="pre">Connection.slot</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api/controller.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Jacopo Abramo.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -408,13 +408,12 @@ mamba<span class="w"> </span>activate<span class="w"> </span>redsun-env
 </div>
 </div>
 </div>
-<p>The package is currently not available on PyPI. You’ll have to install it from source by cloning the <a class="reference external" href="https://github.com/redsun-acquisition/redsun">repository</a>.</p>
-<p>You’ll also need to install the <a class="reference external" href="https://github.com/redsun-acquisition/sunflare">Sunflare</a> package, Redsun’s toolkit. It is currently available on PyPI.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># first install the Sunflare package...</span>
-pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sunflare
-
-<span class="c1"># ... then clone the Redsun repository and install it</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/redsun-acquisition/redsun.git
+<p>The package available on PyPI. You can install it via the following command in your active environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>redsun
+</pre></div>
+</div>
+<p>Alternatively, you can install by locally cloning the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/redsun-acquisition/redsun.git
 <span class="nb">cd</span><span class="w"> </span>redsun
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
@@ -424,7 +423,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
 <section id="building-the-documentation">
 <h3>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
-<p>You can build the documentation by running the following command:</p>
+<p>If you have cloned the repository locally, you can build the documentation by running the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
 make<span class="w"> </span>html
 
@@ -433,6 +432,20 @@ make.bat<span class="w"> </span>html
 </pre></div>
 </div>
 <p>You can then inspect the documentation in the <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> directory by opening the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file in your browser.</p>
+</section>
+<section id="running-tests">
+<h3>Running tests<a class="headerlink" href="#running-tests" title="Link to this heading">#</a></h3>
+<p>If you have cloned the repository locally, you can run tests via <code class="docutils literal notranslate"><span class="pre">pytest</span></code> as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
+
+pytest
+</pre></div>
+</div>
+<p>You can get a report of test coverage via the comand:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--cov<span class="o">=</span>redsun<span class="w"> </span>--cov-report<span class="o">=</span>html
+</pre></div>
+</div>
+<p>This will generate a coverage report in the folder <code class="docutils literal notranslate"><span class="pre">htmlcov</span></code>. You can inspect the report by opening the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file in your browser.</p>
 </section>
 </section>
 </section>
@@ -487,6 +500,7 @@ make.bat<span class="w"> </span>html
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running tests</a></li>
 </ul>
 </li>
 </ul>

@@ -469,19 +469,23 @@ to (optionally) perform cleanup operations.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="sunflare.model.ModelProtocol.configure">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">configure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.model.ModelProtocol.configure" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">configure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.model.ModelProtocol.configure" title="Link to this definition">#</a></dt>
 <dd><p>Configure the model.</p>
 <p>The protocol allows to set new values for slow-changing parameters.</p>
+<p>The method can be normal or <cite>async</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – The name of the configuration parameter to set.</p></li>
-<li><p><strong>value</strong> (<code class="docutils literal notranslate"><span class="pre">Any</span></code>) – The value to set for the configuration parameter.</p></li>
-<li><p><strong>kwargs</strong> (<code class="docutils literal notranslate"><span class="pre">Any</span></code>) – Additional keyword arguments.</p></li>
+<li><p><strong>*args</strong> (<em>Any</em>) – Positional arguments.</p></li>
+<li><p><strong>**kwargs</strong> (<em>Any</em>) – Keyword arguments.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A two-element tuple: the first element is the old configuration value;
+the second element is the new configuration value set by the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference external" href="https://blueskyproject.io/bluesky/main/hardware.html#bluesky.protocols.Reading" title="(in bluesky v1.13.1rc3.dev20+g0d25c16e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reading</span></code></a>, <a class="reference external" href="https://blueskyproject.io/bluesky/main/hardware.html#bluesky.protocols.Reading" title="(in bluesky v1.13.1rc3.dev20+g0d25c16e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reading</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -491,6 +495,7 @@ to (optionally) perform cleanup operations.</p>
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.model.ModelProtocol.read_configuration" title="Link to this definition">#</a></dt>
 <dd><p>Read the model configuration.</p>
 <p>Provides a dictionary with the current values of the model configuration.</p>
+<p>The method can be normal or <cite>async</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dictionary with the current values of the model configuration.</p>
@@ -506,6 +511,7 @@ to (optionally) perform cleanup operations.</p>
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">describe_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.model.ModelProtocol.describe_configuration" title="Link to this definition">#</a></dt>
 <dd><p>Describe the model configuration.</p>
 <p>Provides a description of each field of the model configuration.</p>
+<p>The method can be normal or <cite>async</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dictionary with the description of each field of the model configuration.</p>

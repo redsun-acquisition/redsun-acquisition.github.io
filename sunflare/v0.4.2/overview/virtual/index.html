@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Virtual bus &#8212; Sunflare  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=47693ab7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview/virtual';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="API Reference" href="../../api/" />
+    <link rel="prev" title="Orchestrator" href="../orchestrator_controllers/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Sunflare  documentation</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../statement/">
+    Statement of need
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../crash_course/">
+    O.O.P. crash course
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../changelog/">
+    Changelog
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/sunflare" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../statement/">
+    Statement of need
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../crash_course/">
+    O.O.P. crash course
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog/">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/sunflare" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/">Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../in_process_model/">In-process models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../controllers/">Controllers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../orchestrator_controllers/">Orchestrator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Virtual bus</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">Overview</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Virtual bus</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="virtual-bus">
+<h1>Virtual bus<a class="headerlink" href="#virtual-bus" title="Link to this heading">#</a></h1>
+<p>The <a class="reference internal" href="../../api/virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a> is a class encapsulating different communication mechanism to allow different controllers and widget to exchange controls and/or data streams. It provides the following features:</p>
+<ul class="simple">
+<li><p>a “Qt-like” mechanism of signal connection through the <a class="reference external" href="https://psygnal.readthedocs.io/en/stable/"><code class="docutils literal notranslate"><span class="pre">psygnal</span></code></a> package, where objects can dinamically register signals and connect to remote slots for communication in the main thread;</p></li>
+<li><p>a ZMQ publisher/subscriber device which provides a common data exchange channel for multiple endpoints via the <a class="reference external" href="https://pyzmq.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pyzmq</span></code></a> package;</p>
+<ul>
+<li><p>data can be encoded/decoded via <a class="reference external" href="https://jcristharif.com/msgspec/"><code class="docutils literal notranslate"><span class="pre">msgspec</span></code></a>;</p></li>
+</ul>
+</li>
+<li><p>a <a class="reference internal" href="../../api/virtual/#sunflare.virtual.slot" title="sunflare.virtual.slot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slot</span></code></a> decorator which can mark your class method as a function connected to a signal;</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference internal" href="../../api/virtual/#sunflare.virtual.slot" title="sunflare.virtual.slot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slot</span></code></a> is pure syntactic sugar; it does not provide any advantage at runtime, but renders your code more easy to read for other developers. <code class="docutils literal notranslate"><span class="pre">psygnal.Signal</span></code> can be connected to any function or class method.</p>
+</div>
+<section id="signal-connection">
+<h2>Signal connection<a class="headerlink" href="#signal-connection" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code> allows to create a connection between objects living in different plugins.</p>
+<p>Suppose you have the following example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">emitter_plugin.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Emitter</span><span class="p">:</span>
+    <span class="n">sigSender</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">receiver_plugin.py</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Receiver</span><span class="p">:</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">receiver_slot</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I received&quot;</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In a normal scenario where you have access to the codebase of both <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> and <code class="docutils literal notranslate"><span class="pre">Receiver</span></code>, you would simply do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">emitter</span> <span class="o">=</span> <span class="n">Emitter</span><span class="p">()</span>
+<span class="n">receiver</span> <span class="o">=</span> <span class="n">Receiver</span><span class="p">()</span>
+
+<span class="n">emitter</span><span class="o">.</span><span class="n">sigSender</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">receiver</span><span class="o">.</span><span class="n">receiver_slot</span><span class="p">)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">sigSender</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># prints &quot;I received 10&quot;</span>
+</pre></div>
+</div>
+<p>Redsun operates by dinamically loading plugins, which means that <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> and <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> may come from different packages.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code> takes care of giving a common exposure and retrieval point between different plugins. The catch is that to be able to share a connection, <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> and <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> must be adapted to talk to the bus:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">emitter_plugin.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.virtual</span><span class="w"> </span><span class="kn">import</span> <span class="n">VirtualBus</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Emitter</span><span class="p">:</span>
+    <span class="n">sigSender</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span> <span class="o">=</span> <span class="n">virtual_bus</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">registration_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="o">.</span><span class="n">register_signals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">receiver_plugin.py</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.virtual</span><span class="w"> </span><span class="kn">import</span> <span class="n">VirtualBus</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Receiver</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">virtual_bus</span><span class="p">:</span> <span class="n">VirtualBus</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span> <span class="o">=</span> <span class="n">virtual_bus</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">receiver_slot</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I received&quot;</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">connection_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;Emitter&quot;</span><span class="p">][</span><span class="s2">&quot;sigSender&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_slot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>With this modifications, <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> has informed the <code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code> of the existence of <code class="docutils literal notranslate"><span class="pre">sigSender</span></code>, and <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> can retrieve <code class="docutils literal notranslate"><span class="pre">sigSender</span></code> from <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> to connect the signal to its slot <code class="docutils literal notranslate"><span class="pre">receiver_slot</span></code>.</p>
+<p>This enforces a specific call order: all <code class="docutils literal notranslate"><span class="pre">Emitter</span></code>-like object must call the <code class="docutils literal notranslate"><span class="pre">registration_phase</span></code> method before any <code class="docutils literal notranslate"><span class="pre">Receiver</span></code>-like´object can call the <code class="docutils literal notranslate"><span class="pre">connection_phase</span></code> method, otherwise there will be a mismatch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a <code class="docutils literal notranslate"><span class="pre">Receiver</span></code>-like object tries to connect to a non-defined signal, your application will not crash, but there will be simply no connection enstablished with your slots.</p>
+</div>
+<p>As a user, you only need to provide these two methods to ensure a safe connection. When Redsun is launched, it takes care of calling <code class="docutils literal notranslate"><span class="pre">registration_phase</span></code> and <code class="docutils literal notranslate"><span class="pre">connection_phase</span></code> in the correct order to ensure a safe connection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you’re using Sunflare in a non-Redsun application, you’ll have to:</p>
+<ul class="simple">
+<li><p>create an instance of <code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code>;</p></li>
+<li><p>connect any <code class="docutils literal notranslate"><span class="pre">Emitter</span></code> and <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> objects manually;</p></li>
+<li><p>call <a class="reference internal" href="../../api/virtual/#sunflare.virtual.VirtualBus.shutdown" title="sunflare.virtual.VirtualBus.shutdown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shutdown</span></code></a> before ending your application;</p>
+<ul>
+<li><p>the rationale is that the bus deploys a ZMQ context which has to be gracefully terminated; the <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> method takes care of that.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sunflare.virtual</span><span class="w"> </span><span class="kn">import</span> <span class="n">VirtualBus</span>
+
+<span class="n">bus</span> <span class="o">=</span> <span class="n">VirtualBus</span><span class="p">()</span>
+
+<span class="n">emitter</span> <span class="o">=</span> <span class="n">Emitter</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+<span class="n">receiver</span> <span class="o">=</span> <span class="n">Receiver</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+
+<span class="c1"># ... run your application</span>
+<span class="c1"># before ending the application,</span>
+<span class="c1"># call the following:</span>
+<span class="n">bus</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="socket-connection">
+<h2>Socket connection<a class="headerlink" href="#socket-connection" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">VirtualBus</span></code> uses a <a class="reference external" href="https://pyzmq.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pyzmq</span></code></a> queue (called a “forwarder”) for sharing a serialized byte stream between different endpoints using the publisher/subscriber pattern.</p>
+<p>This pattern can be used in different configurations.</p>
+<ul class="simple">
+<li><p>one-to-one: a single publisher forwards data to a single subscriber;</p></li>
+</ul>
+<pre align="center" class="mermaid align-center">
+        ---
+config:
+  theme: neutral
+
+---
+graph LR
+    q[[&quot;zmq.XSUB | -&gt; | zmq.XPUB&quot;]]
+    pub[&quot;zmq.PUB&quot;] --&gt; q
+    q --&gt; sub[&quot;zmq.SUB&quot;]
+    </pre><ul class="simple">
+<li><p>one-to-many: a single publisher forwards data to a multiple subscribers;</p></li>
+</ul>
+<pre align="center" class="mermaid align-center">
+        ---
+config:
+  theme: neutral
+
+---
+graph LR
+    q[[&quot;zmq.XSUB | -&gt; | zmq.XPUB&quot;]]
+    pubA[&quot;zmq.PUB&quot;] --&gt; q
+    q --&gt; subA[&quot;zmq.SUB&quot;]
+    q --&gt; subB[&quot;zmq.SUB&quot;]
+    q --&gt; subC[&quot;zmq.SUB&quot;]
+    </pre><ul class="simple">
+<li><p>many-to-many: multiple publishers forward data to a multiple subscribers;</p></li>
+</ul>
+<pre align="center" class="mermaid align-center">
+        ---
+config:
+  theme: neutral
+
+---
+graph LR
+    pubA[&quot;zmq.PUB&quot;] --&gt; q
+    pubB[&quot;zmq.PUB&quot;] --&gt; q
+    pubC[&quot;zmq.PUB&quot;] --&gt; q
+    q[[&quot;zmq.XSUB | -&gt; | zmq.XPUB&quot;]]
+    q --&gt; subA[&quot;zmq.SUB&quot;]
+    q --&gt; subB[&quot;zmq.SUB&quot;]
+    q --&gt; subC[&quot;zmq.SUB&quot;]
+    </pre><ul class="simple">
+<li><p>many-to-one: multiple publishers forward data to a single subscriber.</p></li>
+</ul>
+<pre align="center" class="mermaid align-center">
+        ---
+config:
+  theme: neutral
+
+---
+graph LR
+    pubA[&quot;zmq.PUB&quot;] --&gt; q
+    pubB[&quot;zmq.PUB&quot;] --&gt; q
+    pubC[&quot;zmq.PUB&quot;] --&gt; q
+    q[[&quot;zmq.XSUB | -&gt; | zmq.XPUB&quot;]]
+    q --&gt; subA[&quot;zmq.SUB&quot;]
+    </pre><p>This is transparent to the plugins: they’re not aware of how many agents are currently connected to the forwarder; whenever a new message is sent from a publisher, any subscriber who is actively listening (either to a broadcasted message or to a specific topic) will be able to receive the information.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sunflare.virtual</span></code> module provides a series of pre-shipped classes which allow for easy integration with the <code class="docutils literal notranslate"><span class="pre">zmq</span></code> forwarder:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/virtual/#sunflare.virtual.Publisher" title="sunflare.virtual.Publisher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Publisher</span></code></a> (message dispatching);</p></li>
+<li><p><a class="reference internal" href="../../api/virtual/#sunflare.virtual.Subscriber" title="sunflare.virtual.Subscriber"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscriber</span></code></a> (message reception).</p></li>
+</ul>
+<section id="serialization-with-msgspec">
+<h3>Serialization with <code class="docutils literal notranslate"><span class="pre">msgspec</span></code><a class="headerlink" href="#serialization-with-msgspec" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://jcristharif.com/msgspec/"><code class="docutils literal notranslate"><span class="pre">msgspec</span></code></a> is a <em>fast</em> serialization library (according to the author, and backed up by some <a class="reference external" href="https://jcristharif.com/msgspec/benchmarks.html">benchmarks</a>); combined with the performance of <a class="reference external" href="https://pyzmq.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pyzmq</span></code></a>, transmission from one point to another becomes easy and fast. Sunflare provides two methods:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/virtual/#sunflare.virtual.encode" title="sunflare.virtual.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code></a>;</p></li>
+<li><p><a class="reference internal" href="../../api/virtual/#sunflare.virtual.decode" title="sunflare.virtual.decode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode</span></code></a>;</p></li>
+</ul>
+<p>using a common, reusable <code class="docutils literal notranslate"><span class="pre">msgspec</span></code> encoder/decoder for data transmission and reception.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../orchestrator_controllers/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Orchestrator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../api/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-connection">Signal connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socket-connection">Socket connection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization-with-msgspec">Serialization with <code class="docutils literal notranslate"><span class="pre">msgspec</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/overview/virtual.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Jacopo Abramo.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

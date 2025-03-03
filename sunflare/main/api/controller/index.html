@@ -48,7 +48,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="sunflare.model" href="../model/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -456,9 +456,9 @@
 <li><p>available protocols:</p>
 <ul>
 <li><p><a class="reference internal" href="#sunflare.controller.ControllerProtocol" title="sunflare.controller.ControllerProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a> (for class initialization)</p></li>
-<li><p><a class="reference internal" href="#sunflare.controller.HasShutdown" title="sunflare.controller.HasShutdown"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasShutdown</span></code></a> (for clearing held resources)</p></li>
-<li><p><a class="reference internal" href="#sunflare.controller.HasRegistration" title="sunflare.controller.HasRegistration"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code></a> (for registering signals)</p></li>
-<li><p><a class="reference internal" href="#sunflare.controller.HasConnection" title="sunflare.controller.HasConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code></a> (for connecting signals to local methods)</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">HasShutdown</span></code> (for clearing held resources)</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code> (for registering signals)</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code> (for connecting signals to local methods)</p></li>
 </ul>
 </li>
 </ul>
@@ -470,8 +470,8 @@
 <li><p>available mixins:</p>
 <ul>
 <li><p><a class="reference internal" href="#sunflare.controller.Controller" title="sunflare.controller.Controller"><code class="xref py py-class docutils literal notranslate"><span class="pre">Controller</span></code></a> (minimal base controller)</p></li>
-<li><p><a class="reference internal" href="#sunflare.controller.Sender" title="sunflare.controller.Sender"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sender</span></code></a> (implements <a class="reference internal" href="#sunflare.controller.HasRegistration" title="sunflare.controller.HasRegistration"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code></a> protocol)</p></li>
-<li><p><a class="reference internal" href="#sunflare.controller.Receiver" title="sunflare.controller.Receiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Receiver</span></code></a> (implements <a class="reference internal" href="#sunflare.controller.HasConnection" title="sunflare.controller.HasConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code></a> protocol)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.Sender" title="sunflare.controller.Sender"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sender</span></code></a> (implements <code class="xref py py-class docutils literal notranslate"><span class="pre">HasRegistration</span></code> protocol)</p></li>
+<li><p><a class="reference internal" href="#sunflare.controller.Receiver" title="sunflare.controller.Receiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Receiver</span></code></a> (implements <code class="xref py py-class docutils literal notranslate"><span class="pre">HasConnection</span></code> protocol)</p></li>
 <li><p><a class="reference internal" href="#sunflare.controller.SenderReceiver" title="sunflare.controller.SenderReceiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">SenderReceiver</span></code></a> (union of previous two mixins)</p></li>
 </ul>
 </li>
@@ -493,110 +493,6 @@ that Redsun can recognize as a controller.</p>
 </ul>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.controller.ControllerProtocol.ctrl_info">
-<span class="sig-name descname"><span class="pre">ctrl_info</span></span><a class="headerlink" href="#sunflare.controller.ControllerProtocol.ctrl_info" title="Link to this definition">#</a></dt>
-<dd><p>Controller information.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.controller.ControllerProtocol.virtual_bus">
-<span class="sig-name descname"><span class="pre">virtual_bus</span></span><a class="headerlink" href="#sunflare.controller.ControllerProtocol.virtual_bus" title="Link to this definition">#</a></dt>
-<dd><p>Reference to the virtual bus.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sunflare.controller.HasShutdown">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasShutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasShutdown" title="Link to this definition">#</a></dt>
-<dd><p>Shutdown protocol class.</p>
-<p>Provides the <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> method.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="sunflare.controller.HasShutdown.shutdown">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasShutdown.shutdown" title="Link to this definition">#</a></dt>
-<dd><p>Shutdown the controller. Performs cleanup operations.</p>
-<p>If the controller holds any kind of resources,
-this method should invoke any equivalent shutdown method for each resource.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sunflare.controller.HasRegistration">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasRegistration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasRegistration" title="Link to this definition">#</a></dt>
-<dd><p>Protocol marking your class as capable of emitting signals.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="sunflare.controller.HasRegistration.registration_phase">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">registration_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasRegistration.registration_phase" title="Link to this definition">#</a></dt>
-<dd><p>Register the controller signals listed in this method to expose them to the virtual bus.</p>
-<p>At application start-up, controllers can’t know what signals are available from other controllers. This method is called after all controllers are initialized to allow them to register their signals. Controllers may be able to register further signals even after this phase (but not before the <cite>connection_phase</cite> ended). </p>
-<p>Only signals defined in your controller can be registered.</p>
-<p>An implementation example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">registration_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># you can register all signals...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="o">.</span><span class="n">register_signals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-    <span class="c1"># ... or only a selection of them</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="o">.</span><span class="n">register_signals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">only</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;signal&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sunflare.controller.HasConnection">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.controller.</span></span><span class="sig-name descname"><span class="pre">HasConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasConnection" title="Link to this definition">#</a></dt>
-<dd><p>Protocol marking your class as requesting connection to other signals.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="sunflare.controller.HasConnection.connection_phase">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connection_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.controller.HasConnection.connection_phase" title="Link to this definition">#</a></dt>
-<dd><p>Connect to other controllers or widgets.</p>
-<p>At application start-up, controllers can’t know what signals are available from other parts of Redsun.
-This method is invoked after the controller’s construction and after <cite>registration_phase</cite> as well, allowing to
-connect to all available registered signals in both virtual buses.
-Controllers may be able to connect to other signals even after this phase (provided those signals
-were registered before).</p>
-<p>An implementation example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">connection_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># you can connect signals from another controller to your local slots...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherController&quot;</span><span class="p">][</span><span class="s2">&quot;signal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_my_slot</span><span class="p">)</span>
-
-    <span class="c1"># ... or to other signals ...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherController&quot;</span><span class="p">][</span><span class="s2">&quot;signal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigMySignal</span><span class="p">)</span>
-
-    <span class="c1"># ... or connect to widgets</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">virtual_bus</span><span class="p">[</span><span class="s2">&quot;OtherWidget&quot;</span><span class="p">][</span><span class="s2">&quot;sigWidget&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_my_slot</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -632,7 +528,7 @@ were registered before).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a>.</p></li>
+<li><p><strong>ctrl_info</strong> (<code class="docutils literal notranslate"><span class="pre">CI</span></code>) – Instance of <a class="reference internal" href="../config/#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a> subclass.</p></li>
 <li><p><strong>models</strong> (<code class="docutils literal notranslate"><span class="pre">Mapping[str,</span> <span class="pre">ModelProtocol]</span></code>) – Reference to the models used in the controller.</p></li>
 <li><p><strong>virtual_bus</strong> (<a class="reference internal" href="../virtual/#sunflare.virtual.VirtualBus" title="sunflare.virtual.VirtualBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualBus</span></code></a>) – Reference to the virtual bus.</p></li>
 </ul>
@@ -1015,23 +911,7 @@ to set the <cite>connection_map</cite> parameter.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol.ctrl_info"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol.ctrl_info</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol.virtual_bus"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol.virtual_bus</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasShutdown"><code class="docutils literal notranslate"><span class="pre">HasShutdown</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasShutdown.shutdown"><code class="docutils literal notranslate"><span class="pre">HasShutdown.shutdown()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasRegistration"><code class="docutils literal notranslate"><span class="pre">HasRegistration</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasRegistration.registration_phase"><code class="docutils literal notranslate"><span class="pre">HasRegistration.registration_phase()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasConnection"><code class="docutils literal notranslate"><span class="pre">HasConnection</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.HasConnection.connection_phase"><code class="docutils literal notranslate"><span class="pre">HasConnection.connection_phase()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.ControllerProtocol"><code class="docutils literal notranslate"><span class="pre">ControllerProtocol</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Controller"><code class="docutils literal notranslate"><span class="pre">Controller</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Sender"><code class="docutils literal notranslate"><span class="pre">Sender</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.controller.Sender.signals"><code class="docutils literal notranslate"><span class="pre">Sender.signals</span></code></a></li>

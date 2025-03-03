@@ -48,7 +48,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="Overview" href="../" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -452,7 +452,11 @@
 <h1>Models<a class="headerlink" href="#models" title="Link to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">Model</span></code> represents an interface with a device.</p>
 <p>The definition of a model is quite fluid, as there are many ways that it can interact with the hardware depending on your needs.</p>
-<p>Sunflare provides a <a class="reference internal" href="../../api/model/#sunflare.model.ModelProtocol" title="sunflare.model.ModelProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelProtocol</span></code></a> with a minimal required interface to be recognized by a Redsun application.</p>
+<p>Models can be developed with two approaches:</p>
+<ul class="simple">
+<li><p>by implementing the <a class="reference internal" href="../../api/model/#sunflare.model.ModelProtocol" title="sunflare.model.ModelProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelProtocol</span></code></a> with all the required methods and properties;</p></li>
+<li><p>inheriting from <a class="reference internal" href="../../api/model/#sunflare.model.Model" title="sunflare.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>, which implements the above protocol with pre-configured implementation.</p></li>
+</ul>
 <p>Additional parameters can be passed to the <code class="docutils literal notranslate"><span class="pre">ModelProtocol</span></code> via the <a class="reference internal" href="../../api/config/#sunflare.config.ModelInfo" title="sunflare.config.ModelInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelInfo</span></code></a> configuration class, by subclassing the latter to provide additional configuration informations.</p>
 <div class="toctree-wrapper compound">
 <ul>

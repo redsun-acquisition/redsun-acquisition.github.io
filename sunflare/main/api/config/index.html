@@ -48,7 +48,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="API Reference" href="../" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -487,16 +487,17 @@ components currently loaded in Redsun.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sunflare.config.ControllerInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.config.</span></span><span class="sig-name descname"><span class="pre">ControllerInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.config.ControllerInfo" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.config.</span></span><span class="sig-name descname"><span class="pre">ControllerInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.config.ControllerInfo" title="Link to this definition">#</a></dt>
 <dd><p>Controller information model.</p>
 <p>All controller information models inherit from this class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>plugin_name</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, optional) – Controller plugin name.
-Equivalent to the name of the PyPI/Conda package.
-Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</span></code>.</p></li>
-<li><p><strong>repository</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, optional) – Controller repository URL. Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</span></code>.</p></li>
+Equivalent to the name of the PyPI/Conda package.</p></li>
+<li><p><strong>plugin_id</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, optional) – Controller plugin ID.
+Associated with the exposed entry point
+in the plugin manifest.</p></li>
 </ul>
 </dd>
 </dl>
@@ -504,27 +505,41 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</sp
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sunflare.config.ModelInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.config.</span></span><span class="sig-name descname"><span class="pre">ModelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vendor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.config.ModelInfo" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sunflare.config.</span></span><span class="sig-name descname"><span class="pre">ModelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vendor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N/A'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.config.ModelInfo" title="Link to this definition">#</a></dt>
 <dd><p>Base model for device information.</p>
 <p>All device information models inherit from this class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model_name</strong> (<em>str</em>)</p></li>
-<li><p><strong>vendor</strong> (<em>str</em>)</p></li>
-<li><p><strong>serial_number</strong> (<em>str</em>)</p></li>
 <li><p><strong>plugin_name</strong> (<em>str</em>)</p></li>
-<li><p><strong>repository</strong> (<em>str</em>)</p></li>
+<li><p><strong>plugin_id</strong> (<em>str</em>)</p></li>
+<li><p><strong>vendor</strong> (<em>str</em>)</p></li>
+<li><p><strong>family</strong> (<em>str</em>)</p></li>
+<li><p><strong>serial_number</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.config.ModelInfo.model_name">
-<span class="sig-name descname"><span class="pre">model_name</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.model_name" title="Link to this definition">#</a></dt>
-<dd><p>Device model name.</p>
+<dt class="sig sig-object py" id="sunflare.config.ModelInfo.plugin_name">
+<span class="sig-name descname"><span class="pre">plugin_name</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.plugin_name" title="Link to this definition">#</a></dt>
+<dd><p>Model plugin name.
+Equivalent to the name of the PyPI/Conda package.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sunflare.config.ModelInfo.plugin_id">
+<span class="sig-name descname"><span class="pre">plugin_id</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.plugin_id" title="Link to this definition">#</a></dt>
+<dd><p>Model plugin ID.
+Associated with the exposed entry point
+in the plugin manifest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -532,30 +547,7 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</sp
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sunflare.config.ModelInfo.vendor">
 <span class="sig-name descname"><span class="pre">vendor</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.vendor" title="Link to this definition">#</a></dt>
-<dd><p>Detector vendor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.config.ModelInfo.serial_number">
-<span class="sig-name descname"><span class="pre">serial_number</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.serial_number" title="Link to this definition">#</a></dt>
-<dd><p>Detector serial number.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.config.ModelInfo.plugin_name">
-<span class="sig-name descname"><span class="pre">plugin_name</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.plugin_name" title="Link to this definition">#</a></dt>
-<dd><p>Model plugin name.
-Equivalent to the name of the PyPI/Conda package.
+<dd><p>Detector vendor.
 Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -565,9 +557,10 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</sp
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sunflare.config.ModelInfo.repository">
-<span class="sig-name descname"><span class="pre">repository</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.repository" title="Link to this definition">#</a></dt>
-<dd><p>Model repository URL. Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</span></code>.</p>
+<dt class="sig sig-object py" id="sunflare.config.ModelInfo.family">
+<span class="sig-name descname"><span class="pre">family</span></span><a class="headerlink" href="#sunflare.config.ModelInfo.family" title="Link to this definition">#</a></dt>
+<dd><p>Detector family.
+Defaults to <code class="docutils literal notranslate"><span class="pre">N/A</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
@@ -594,9 +587,9 @@ it provides information about the hardware layout and the selected acquisition e
 <li><p><strong>session</strong> (<em>str</em>)</p></li>
 <li><p><strong>engine</strong> (<a class="reference internal" href="#sunflare.config.AcquisitionEngineTypes" title="sunflare.config.AcquisitionEngineTypes"><em>AcquisitionEngineTypes</em></a>)</p></li>
 <li><p><strong>frontend</strong> (<a class="reference internal" href="#sunflare.config.FrontendTypes" title="sunflare.config.FrontendTypes"><em>FrontendTypes</em></a>)</p></li>
-<li><p><strong>models</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#sunflare.config.ModelInfo" title="sunflare.config.ModelInfo"><em>ModelInfo</em></a><em>]</em>)</p></li>
-<li><p><strong>controllers</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#sunflare.config.ControllerInfo" title="sunflare.config.ControllerInfo"><em>ControllerInfo</em></a><em>]</em>)</p></li>
-<li><p><strong>widgets</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>WidgetInfo</em><em>]</em>)</p></li>
+<li><p><strong>models</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>ModelInfoProtocol</em><em>]</em>)</p></li>
+<li><p><strong>controllers</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>ControllerInfoProtocol</em><em>]</em>)</p></li>
+<li><p><strong>widgets</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>WidgetInfoProtocol</em><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -734,11 +727,10 @@ Defaults to an empty dictionary.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ControllerInfo"><code class="docutils literal notranslate"><span class="pre">ControllerInfo</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo"><code class="docutils literal notranslate"><span class="pre">ModelInfo</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.model_name"><code class="docutils literal notranslate"><span class="pre">ModelInfo.model_name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.vendor"><code class="docutils literal notranslate"><span class="pre">ModelInfo.vendor</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.serial_number"><code class="docutils literal notranslate"><span class="pre">ModelInfo.serial_number</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.plugin_name"><code class="docutils literal notranslate"><span class="pre">ModelInfo.plugin_name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.repository"><code class="docutils literal notranslate"><span class="pre">ModelInfo.repository</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.plugin_id"><code class="docutils literal notranslate"><span class="pre">ModelInfo.plugin_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.vendor"><code class="docutils literal notranslate"><span class="pre">ModelInfo.vendor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.ModelInfo.family"><code class="docutils literal notranslate"><span class="pre">ModelInfo.family</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunflare.config.RedSunSessionInfo"><code class="docutils literal notranslate"><span class="pre">RedSunSessionInfo</span></code></a><ul class="nav section-nav flex-column">

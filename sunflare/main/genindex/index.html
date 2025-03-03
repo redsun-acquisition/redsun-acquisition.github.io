@@ -55,7 +55,7 @@ window.addEventListener("load", () => mermaid.run());
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -63,7 +63,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="search" title="Search" href="../search/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -454,8 +454,6 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/model/#sunflare.model.check_supports">check_supports() (in module sunflare.model)</a>
 </li>
-      <li><a href="../api/model/#sunflare.model.ModelProtocol.configure">configure() (sunflare.model.ModelProtocol method)</a>
-</li>
       <li><a href="../api/virtual/#sunflare.virtual.VirtualBus.connect_publisher">connect_publisher() (sunflare.virtual.VirtualBus method)</a>
 </li>
       <li><a href="../api/virtual/#sunflare.virtual.VirtualBus.connect_subscriber">connect_subscriber() (sunflare.virtual.VirtualBus method)</a>
@@ -468,12 +466,12 @@ window.addEventListener("load", () => mermaid.run());
         <li><a href="../api/controller/#sunflare.controller.SenderReceiver.connection_map">(sunflare.controller.SenderReceiver attribute)</a>
 </li>
       </ul></li>
-      <li><a href="../api/controller/#sunflare.controller.HasConnection.connection_phase">connection_phase() (sunflare.controller.HasConnection method)</a>
+      <li><a href="../api/controller/#sunflare.controller.Receiver.connection_phase">connection_phase() (sunflare.controller.Receiver method)</a>
 
       <ul>
-        <li><a href="../api/controller/#sunflare.controller.Receiver.connection_phase">(sunflare.controller.Receiver method)</a>
-</li>
         <li><a href="../api/controller/#sunflare.controller.SenderReceiver.connection_phase">(sunflare.controller.SenderReceiver method)</a>
+</li>
+        <li><a href="../api/virtual/#sunflare.virtual.HasConnection.connection_phase">(sunflare.virtual.HasConnection method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -490,8 +488,6 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/log/#sunflare.log.Loggable.critical">critical() (sunflare.log.Loggable method)</a>
 </li>
-      <li><a href="../api/controller/#sunflare.controller.ControllerProtocol.ctrl_info">ctrl_info (sunflare.controller.ControllerProtocol attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -504,8 +500,12 @@ window.addEventListener("load", () => mermaid.run());
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/model/#sunflare.model.ModelProtocol.describe_configuration">describe_configuration() (sunflare.model.ModelProtocol method)</a>
+      <li><a href="../api/model/#sunflare.model.Model.describe_configuration">describe_configuration() (sunflare.model.Model method)</a>
+
+      <ul>
+        <li><a href="../api/model/#sunflare.model.ModelProtocol.describe_configuration">(sunflare.model.ModelProtocol method)</a>
 </li>
+      </ul></li>
       <li><a href="../api/engine/#sunflare.engine.Status.done">done (sunflare.engine.Status property)</a>
 </li>
   </ul></td>
@@ -540,10 +540,12 @@ window.addEventListener("load", () => mermaid.run());
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/config/#sunflare.config.RedSunSessionInfo.frontend">frontend (sunflare.config.RedSunSessionInfo attribute)</a>
+      <li><a href="../api/config/#sunflare.config.ModelInfo.family">family (sunflare.config.ModelInfo attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/config/#sunflare.config.RedSunSessionInfo.frontend">frontend (sunflare.config.RedSunSessionInfo attribute)</a>
+</li>
       <li><a href="../api/config/#sunflare.config.FrontendTypes">FrontendTypes (class in sunflare.config)</a>
 </li>
   </ul></td>
@@ -552,13 +554,13 @@ window.addEventListener("load", () => mermaid.run());
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/controller/#sunflare.controller.HasConnection">HasConnection (class in sunflare.controller)</a>
+      <li><a href="../api/virtual/#sunflare.virtual.HasConnection">HasConnection (class in sunflare.virtual)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/controller/#sunflare.controller.HasRegistration">HasRegistration (class in sunflare.controller)</a>
+      <li><a href="../api/virtual/#sunflare.virtual.HasRegistration">HasRegistration (class in sunflare.virtual)</a>
 </li>
-      <li><a href="../api/controller/#sunflare.controller.HasShutdown">HasShutdown (class in sunflare.controller)</a>
+      <li><a href="../api/virtual/#sunflare.virtual.HasShutdown">HasShutdown (class in sunflare.virtual)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -594,16 +596,22 @@ window.addEventListener("load", () => mermaid.run());
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/model/#sunflare.model.ModelProtocol.model_info">model_info (sunflare.model.ModelProtocol property)</a>
+      <li><a href="../api/model/#sunflare.model.Model">Model (class in sunflare.model)</a>
 </li>
-      <li><a href="../api/config/#sunflare.config.ModelInfo.model_name">model_name (sunflare.config.ModelInfo attribute)</a>
+      <li><a href="../api/model/#sunflare.model.Model.model_info">model_info (sunflare.model.Model property)</a>
+
+      <ul>
+        <li><a href="../api/model/#sunflare.model.ModelProtocol.model_info">(sunflare.model.ModelProtocol property)</a>
 </li>
+      </ul></li>
       <li><a href="../api/config/#sunflare.config.ModelInfo">ModelInfo (class in sunflare.config)</a>
 </li>
       <li><a href="../api/model/#sunflare.model.ModelProtocol">ModelProtocol (class in sunflare.model)</a>
 </li>
       <li><a href="../api/config/#sunflare.config.RedSunSessionInfo.models">models (sunflare.config.RedSunSessionInfo attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     module
 
@@ -630,6 +638,8 @@ window.addEventListener("load", () => mermaid.run());
       <li><a href="../api/log/#sunflare.log.Loggable.name">name (sunflare.log.Loggable property)</a>
 
       <ul>
+        <li><a href="../api/model/#sunflare.model.Model.name">(sunflare.model.Model property)</a>
+</li>
         <li><a href="../api/model/#sunflare.model.ModelProtocol.name">(sunflare.model.ModelProtocol property)</a>
 </li>
       </ul></li>
@@ -639,14 +649,20 @@ window.addEventListener("load", () => mermaid.run());
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/model/#sunflare.model.ModelProtocol.parent">parent (sunflare.model.ModelProtocol property)</a>
+      <li><a href="../api/model/#sunflare.model.Model.parent">parent (sunflare.model.Model property)</a>
+
+      <ul>
+        <li><a href="../api/model/#sunflare.model.ModelProtocol.parent">(sunflare.model.ModelProtocol property)</a>
 </li>
+      </ul></li>
       <li><a href="../api/engine/#sunflare.engine.RunEngineResult.plan_result">plan_result (sunflare.engine.RunEngineResult attribute)</a>
 </li>
-      <li><a href="../api/config/#sunflare.config.ModelInfo.plugin_name">plugin_name (sunflare.config.ModelInfo attribute)</a>
+      <li><a href="../api/config/#sunflare.config.ModelInfo.plugin_id">plugin_id (sunflare.config.ModelInfo attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/config/#sunflare.config.ModelInfo.plugin_name">plugin_name (sunflare.config.ModelInfo attribute)</a>
+</li>
       <li><a href="../api/virtual/#sunflare.virtual.Publisher.pub_socket">pub_socket (sunflare.virtual.Publisher attribute)</a>
 </li>
       <li><a href="../api/virtual/#sunflare.virtual.Publisher">Publisher (class in sunflare.virtual)</a>
@@ -661,8 +677,12 @@ window.addEventListener("load", () => mermaid.run());
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/model/#sunflare.model.ModelProtocol.read_configuration">read_configuration() (sunflare.model.ModelProtocol method)</a>
+      <li><a href="../api/model/#sunflare.model.Model.read_configuration">read_configuration() (sunflare.model.Model method)</a>
+
+      <ul>
+        <li><a href="../api/model/#sunflare.model.ModelProtocol.read_configuration">(sunflare.model.ModelProtocol method)</a>
 </li>
+      </ul></li>
       <li><a href="../api/engine/#sunflare.engine.RunEngineResult.reason">reason (sunflare.engine.RunEngineResult attribute)</a>
 </li>
       <li><a href="../api/controller/#sunflare.controller.Receiver">Receiver (class in sunflare.controller)</a>
@@ -671,18 +691,16 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/virtual/#sunflare.virtual.VirtualBus.register_signals">register_signals() (sunflare.virtual.VirtualBus method)</a>
 </li>
-      <li><a href="../api/controller/#sunflare.controller.HasRegistration.registration_phase">registration_phase() (sunflare.controller.HasRegistration method)</a>
-
-      <ul>
-        <li><a href="../api/controller/#sunflare.controller.Sender.registration_phase">(sunflare.controller.Sender method)</a>
-</li>
-        <li><a href="../api/controller/#sunflare.controller.SenderReceiver.registration_phase">(sunflare.controller.SenderReceiver method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/config/#sunflare.config.ModelInfo.repository">repository (sunflare.config.ModelInfo attribute)</a>
+      <li><a href="../api/controller/#sunflare.controller.Sender.registration_phase">registration_phase() (sunflare.controller.Sender method)</a>
+
+      <ul>
+        <li><a href="../api/controller/#sunflare.controller.SenderReceiver.registration_phase">(sunflare.controller.SenderReceiver method)</a>
 </li>
+        <li><a href="../api/virtual/#sunflare.virtual.HasRegistration.registration_phase">(sunflare.virtual.HasRegistration method)</a>
+</li>
+      </ul></li>
       <li><a href="../api/engine/#sunflare.engine.RunEngineResult.run_start_uids">run_start_uids (sunflare.engine.RunEngineResult attribute)</a>
 </li>
       <li><a href="../api/engine/#sunflare.engine.RunEngine">RunEngine (class in sunflare.engine)</a>
@@ -699,8 +717,6 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/controller/#sunflare.controller.SenderReceiver">SenderReceiver (class in sunflare.controller)</a>
 </li>
-      <li><a href="../api/config/#sunflare.config.ModelInfo.serial_number">serial_number (sunflare.config.ModelInfo attribute)</a>
-</li>
       <li><a href="../api/config/#sunflare.config.RedSunSessionInfo.session">session (sunflare.config.RedSunSessionInfo attribute)</a>
 </li>
       <li><a href="../api/engine/#sunflare.engine.Status.set_exception">set_exception() (sunflare.engine.Status method)</a>
@@ -709,11 +725,9 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/engine/#sunflare.engine.Status.settle_time">settle_time (sunflare.engine.Status property)</a>
 </li>
-      <li><a href="../api/controller/#sunflare.controller.HasShutdown.shutdown">shutdown() (sunflare.controller.HasShutdown method)</a>
+      <li><a href="../api/virtual/#sunflare.virtual.HasShutdown.shutdown">shutdown() (sunflare.virtual.HasShutdown method)</a>
 
       <ul>
-        <li><a href="../api/model/#sunflare.model.ModelProtocol.shutdown">(sunflare.model.ModelProtocol method)</a>
-</li>
         <li><a href="../api/virtual/#sunflare.virtual.VirtualBus.shutdown">(sunflare.virtual.VirtualBus method)</a>
 </li>
       </ul></li>
@@ -733,10 +747,10 @@ window.addEventListener("load", () => mermaid.run());
 </li>
       <li><a href="../api/virtual/#sunflare.virtual.Subscriber.sub_poller">sub_poller (sunflare.virtual.Subscriber attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/virtual/#sunflare.virtual.Subscriber.sub_socket">sub_socket (sunflare.virtual.Subscriber attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/virtual/#sunflare.virtual.Subscriber.sub_thread">sub_thread (sunflare.virtual.Subscriber attribute)</a>
 </li>
       <li><a href="../api/virtual/#sunflare.virtual.Subscriber.sub_topics">sub_topics (sunflare.virtual.Subscriber attribute)</a>
@@ -805,8 +819,6 @@ window.addEventListener("load", () => mermaid.run());
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/controller/#sunflare.controller.ControllerProtocol.virtual_bus">virtual_bus (sunflare.controller.ControllerProtocol attribute)</a>
-</li>
       <li><a href="../api/virtual/#sunflare.virtual.VirtualBus">VirtualBus (class in sunflare.virtual)</a>
 </li>
   </ul></td>

@@ -48,7 +48,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="sunflare.config" href="../config/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -624,7 +624,13 @@ callback has access to this status object, so it can distinguish success
 or failure by inspecting the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>callable</em>) – Expected signature: <code class="docutils literal notranslate"><span class="pre">callback(status)</span></code>.</p>
+<dd class="field-odd"><p><strong>callback</strong> (<code class="docutils literal notranslate"><span class="pre">Callable[[Status],</span> <span class="pre">None]</span></code>) – <p>The callback to be called when the status is marked as finished.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="n">Status</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Do something with the status object</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -642,34 +648,23 @@ or failure by inspecting the object.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code>: A ZMQ socket to send messages to a remote endpoint;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">socket_prefix</span></code>: A prefix to be used in the ZMQ topic when sending messages.</p></li>
-<li><dl class="simple">
-<dt>When launching a plan, the <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code>, the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method returns a <code class="docutils literal notranslate"><span class="pre">Future</span></code> object.</dt><dd><ul>
-<li><p>This allows to set a callback on the future to retrieve the result of the execution.</p></li>
-<li><p>Alternatively, the result can be accessed directly from the <code class="docutils literal notranslate"><span class="pre">result</span></code> attribute
-when the future is done.</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
+<p>When launching a plan, the <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code>, the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method returns a <code class="docutils literal notranslate"><span class="pre">Future</span></code> object.
+This allows to set a callback on the future to retrieve the result of the execution.
+Alternatively, the result can be accessed directly from the <code class="docutils literal notranslate"><span class="pre">result</span></code> attribute
+when the future is done.</p>
 <p>Suppressed features:</p>
-<ul>
-<li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">context_managers</span></code>: The context managers are forced to be an empty list to</dt><dd><p>avoid the use of the built-in <code class="docutils literal notranslate"><span class="pre">SignalHandler</span></code> context manager.
-- The rationale is that the original implementation is meant for</p>
-<blockquote>
-<div><p>interactive usage (e.g., Jupyter notebooks, scripts) and not
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context_managers</span></code>: The context managers are forced to be an empty list to
+avoid the use of the built-in <code class="docutils literal notranslate"><span class="pre">SignalHandler</span></code> context manager.</p></li>
+</ul>
+<p>The rationale is that the original implementation is meant for
+interactive usage (e.g., Jupyter notebooks, scripts) and not
 for applications relying on an event loop.</p>
-</div></blockquote>
-</dd>
-</dl>
-</li>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pause_msg</span></code>: Overridden to be an empty string.</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">during_task</span></code>: Overridden to <code class="docutils literal notranslate"><span class="pre">DuringTask</span></code>, so the <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code></dt><dd><p>does not interact with any possible event loop in the main thread.</p>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">during_task</span></code>: Overridden to <code class="docutils literal notranslate"><span class="pre">DuringTask</span></code>, so the <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code>
+does not interact with any possible event loop in the main thread.</p></li>
 </ul>
 <p>For the original class initializer signature, refer to the <a class="reference external" href="https://blueskyproject.io/bluesky/main/generated/bluesky.run_engine.RunEngine.html#bluesky.run_engine.RunEngine" title="(in bluesky v1.13.1rc3.dev20+g0d25c16e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RunEngine</span></code></a> documentation.</p>
 <dl class="field-list simple">
@@ -687,7 +682,15 @@ Default is <code class="docutils literal notranslate"><span class="pre">None</sp
 <dl class="py method">
 <dt class="sig sig-object py" id="sunflare.engine.RunEngine.emit_sync">
 <span class="sig-name descname"><span class="pre">emit_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sunflare.engine.RunEngine.emit_sync" title="Link to this definition">#</a></dt>
-<dd><p>Process blocking callbacks and schedule non-blocking callbacks.</p>
+<dd><p>Emit a document synchronously.</p>
+<p>Reimplemented to send documents also through a ZMQ socket.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method is not meant to be used directly.
+The <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code> will emit documents automatically
+during the execution of a plan. Any
+subscriber will receive the documents.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -710,7 +713,7 @@ Default is <code class="docutils literal notranslate"><span class="pre">None</sp
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>run_start_uids</strong> (<em>Tuple</em><em>[</em><em>str</em><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>run_start_uids</strong> (<em>tuple</em><em>[</em><em>str</em><em>, </em><em>...</em><em>]</em>)</p></li>
 <li><p><strong>plan_result</strong> (<em>Any</em>)</p></li>
 <li><p><strong>exit_status</strong> (<em>str</em>)</p></li>
 <li><p><strong>interrupted</strong> (<em>bool</em>)</p></li>

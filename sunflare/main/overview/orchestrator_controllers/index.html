@@ -48,7 +48,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://redsun-acquisition.github.io/sunflare/main/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="Controllers" href="../controllers/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2" />
+  <meta name="docsearch:version" content="0.4.3" />
   </head>
   
   
@@ -517,7 +517,7 @@
 </pre></div>
 </div>
 </div>
-<p>Each controller is unique in the experiment it is expected to orchestrate, and the devices involved in such experiments. Redsun relies on using type hints to filter out the models we want to control. There are two ways to achieve this:</p>
+<p>Each controller is unique in the experiment it is expected to orchestrate, and the devices involved in such experiments. Redsun relies on <a class="reference external" href="https://peps.python.org/pep-0544/">PEP 544</a> (a.k.a. structural subtyping) to filter out the models we want to control. There are two ways to achieve this:</p>
 <ul class="simple">
 <li><p>by using the built-in <code class="docutils literal notranslate"><span class="pre">hasattr</span></code> function to determine if a <code class="docutils literal notranslate"><span class="pre">Model</span></code> has the required methods to execute an operation;</p></li>
 <li><p>by defining a local <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> with the expected methods and using <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> to check if our <code class="docutils literal notranslate"><span class="pre">ModelProtocol</span></code> respects our custom interface.</p></li>

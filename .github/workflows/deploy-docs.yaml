@@ -17,19 +17,24 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: "3.10"
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.10
+
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: uv pip install -r requirements.txt
+        
       - name: build docs
-        run: |
-          make dirhtml
+        run: uv run mkdocs build
       - name: deploy on gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/dirhtml
+          publish_dir: site
           force_orphan: true

@@ -1,1 +1,4 @@
 _build/
+
+# MkDocs build output
+site/

@@ -53,20 +53,20 @@ theme:
 nav:
   - Home: index.md
   - Projects:
-    - RedSun Application: https://redsun-acquisition.github.io/redsun/
-    - SunFlare Toolkit: https://redsun-acquisition.github.io/sunflare/
-    - Plugin Template: https://github.com/redsun-acquisition/redsun-plugin-template
+    - Redsun application: https://redsun-acquisition.github.io/redsun/
+    - Sunflare toolkit: https://redsun-acquisition.github.io/sunflare/
+    - Plugin template: https://github.com/redsun-acquisition/redsun-plugin-template
   - About:
     - statement/index.md
-    - Statement of Need: statement/mission.md
+    - Statement of need: statement/mission.md
     - History: statement/history.md
-    - Bluesky Integration: statement/bluesky.md
+    - Bluesky integration: statement/bluesky.md
   - Community:
     - Governance: governance/index.md
     - About BDFL: governance/about_bdfl.md
-    - Governance Model: governance/governance.md
+    - Governance model: governance/governance.md
   - Resources:
-    - Project List: project-list.md
+    - Project list: project-list.md
 
 plugins:
   - search

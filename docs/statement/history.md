@@ -20,16 +20,14 @@ You can find a (not-so) comprehensive list of projects on the [Smart Microscopy]
 
 In April 2020, a [white paper] [^3] was published following the Software for Microscopy workshop organized at the Janelia Research Campus, Virginia, USA. A group of research experts in the field of microscopy gathered together to discuss the current state of the art in microscopy software, evaluating its current challenges and limitations.
 
-```{note}
-TLDR:
-
-- There is a need for a modular framework that can be used to build custom applications for microscopy.
-- The framework should be easy to use and understand, and should be able to be used by different groups of experts.
-- The framework should be able to be used to control a wide range of hardware devices.
-- The framework should be able to be used to build custom applications for microscopy.
-- The framework should allow easy creation and customization of execution workflows.
-- The framework should be able to be used from multiple programming languages to ensure longevity of the software.
-```
+!!! note "TLDR"
+    
+    - There is a need for a modular framework that can be used to build custom applications for microscopy.
+    - The framework should be easy to use and understand, and should be able to be used by different groups of experts.
+    - The framework should be able to be used to control a wide range of hardware devices.
+    - The framework should be able to be used to build custom applications for microscopy.
+    - The framework should allow easy creation and customization of execution workflows.
+    - The framework should be able to be used from multiple programming languages to ensure longevity of the software.
 
 An excerpt of the white paper reports the considerations made by the participants in relation to the current state of the art of available hardware control software:
 
@@ -62,7 +60,7 @@ Furthermore, concerning programming languages, the white paper reports the follo
 [mmcoreanddevices]: https://github.com/micro-manager/mmCoreAndDevices
 [ImageJ]: https://imagej.net/ij/
 [Smart Microscopy]: https://smartmicroscopy.org/resources/
-[section]: #../project-list
+[section]: ../project-list.md
 [pymmcore]: https://github.com/micro-manager/pymmcore
 [pycro-manager]: https://github.com/micro-manager/pycro-manager
 [white paper]: https://arxiv.org/abs/2005.00082

@@ -1,10 +1,6 @@
 # Governance
 
-This section provides information about the governance model of the RedSun project accross the entire organization.
+This section provides information about the governance model of the RedSun project accross the entire organization:
 
-```{toctree}
-:maxdepth: 1
-
-governance
-about_bdfl
-```
+- [Governance Model](governance.md) - Detailed governance structure and processes
+- [About BDFL](about_bdfl.md) - Information about the Benevolent Dictator For Life model

@@ -52,10 +52,6 @@ theme:
 
 nav:
   - Home: index.md
-  - Projects:
-    - Redsun application: https://redsun-acquisition.github.io/redsun/
-    - Sunflare toolkit: https://redsun-acquisition.github.io/sunflare/
-    - Plugin template: https://github.com/redsun-acquisition/redsun-plugin-template
   - About:
     - statement/index.md
     - Statement of need: statement/mission.md
